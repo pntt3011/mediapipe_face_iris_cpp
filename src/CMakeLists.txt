@@ -1,0 +1,14 @@
+target_sources(${APP_NAME}
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/demo.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/ModelLoader.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/ModelLoader.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/DetectionPostProcess.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/DetectionPostProcess.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/IrisLandmark.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/IrisLandmark.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/FaceLandmark.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/FaceLandmark.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/FaceDetection.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/FaceDetection.hpp
+)
