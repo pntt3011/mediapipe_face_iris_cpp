@@ -34,7 +34,7 @@ You can follow instructions at https://www.40tude.fr/compile-cpp-code-with-vscod
 <details>
   <summary>How to use pre-built library</summary>
 
-1. Download and extract third_party.zip from https://github.com/shigure3011/mediapipe_face_iris_cpp/releases
+1. Download and extract tensorflowlite.zip from https://github.com/shigure3011/mediapipe_face_iris_cpp/releases
 2. Change `TFLite_PATH` in CMakeLists.txt
 3. Add `TFLite_LIBS` to PATH 
 
