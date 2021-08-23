@@ -24,12 +24,14 @@ You can follow instructions at https://www.40tude.fr/compile-cpp-code-with-vscod
 
 ### OpenCV (for Demo)
 <details>
-  <summary>How to install</summary>
+  <summary>How to install (Windows 64-bit)</summary>
 
 1. Download and install pre-built binaries at https://sourceforge.net/projects/opencvlibrary/files/4.5.3/opencv-4.5.3-vc14_vc15.exe/download  
 2. Add `<opencv-install-folder>/build/x64/vc15/bin` and `<opencv-install-folder>/build/x64/vc15/lib` to PATH.
 </details>
-
+Since the prebuilt OPENCV libraries do not contain the 32-bit version, you will have to manually compile it using cmake.
+https://docs.opencv.org/master/d3/d52/tutorial_windows_install.html
+  
 ### Tensorflow Lite
 <details>
   <summary>How to use pre-built library</summary>
