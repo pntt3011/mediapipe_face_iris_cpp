@@ -10,8 +10,8 @@ For more information:
 * Iris landmarks: https://google.github.io/mediapipe/solutions/iris.html
 
 ## :warning: Why not using GPU ?
-Because Mediapipe models cannot run on Windows GPU.
-For more information: https://google.github.io/mediapipe/getting_started/gpu_support.html
+Because Tensorflow Lite only supports GPU delegate for Android and IOS.
+For more information: https://www.tensorflow.org/lite/performance/gpu
 
 ## :computer: Requirements:
 
