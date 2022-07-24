@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-#define FACE_LANDMARKS 468
+#define FACE_LANDMARKS 21
 /*
 Helper function
 */
@@ -18,7 +18,7 @@ bool __isIndexValid(int idx) {
 
 my::FaceLandmark::FaceLandmark(std::string modelPath):
     FaceDetection(modelPath),
-    m_landmarkModel(modelPath + std::string("/face_landmark.tflite"))
+    m_landmarkModel(modelPath + std::string("/hand_landmark_lite.tflite"))
     {}
 
 
