@@ -2,7 +2,7 @@
 
 
 my::FaceDetection::FaceDetection(std::string modelDir) :
-    my::ModelLoader(modelDir + std::string("/face_detection_short.tflite")) 
+    my::ModelLoader(modelDir + std::string("/palm_detection_without_custom_layer.tflite")) 
 {}
 
 

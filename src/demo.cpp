@@ -12,7 +12,7 @@
 
 int main(int argc, char* argv[]) {
 
-    my::IrisLandmark irisLandmarker("./models");
+    my::FaceLandmark irisLandmarker("./models");
     cv::VideoCapture cap(0);
 
     bool success = cap.isOpened();
@@ -46,14 +46,6 @@ int main(int argc, char* argv[]) {
 
         for (auto landmark: irisLandmarker.getAllFaceLandmarks()) {
             cv::circle(rframe, landmark, 2, cv::Scalar(0, 255, 0), -1);
-        }       
-
-        for (auto landmark: irisLandmarker.getAllEyeLandmarks(true, true)) {
-            cv::circle(rframe, landmark, 2, cv::Scalar(0, 0, 255), -1);
-        }
-
-        for (auto landmark: irisLandmarker.getAllEyeLandmarks(false, true)) {
-            cv::circle(rframe, landmark, 2, cv::Scalar(0, 0, 255), -1);
         }
 
         #if SHOW_FPS

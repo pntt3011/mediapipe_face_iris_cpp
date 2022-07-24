@@ -9,24 +9,11 @@
 
 #define CLASS_ID        0
 #define MIN_THRESHOLD   0.75f
-#define DETECTION_SIZE  128
-#define NUM_BOXES       896
-#define NUM_COORD       16
-#define NUM_SIZES       2
+#define DETECTION_SIZE  192
+#define NUM_BOXES       2944
+#define NUM_COORD       18
 
 namespace my {
-
-    struct AnchorOptions {
-        // 2 x 16 x 16 and 6 x 8 x 8 --> 896
-        const int sizes[NUM_SIZES] = {16, 8};
-        const int numLayers[NUM_SIZES] = {2, 6};
-
-        // The offset for the center of anchors.
-        const float offsetX = 0.5f;
-        const float offsetY = 0.5f;
-    };
-
-
     struct Detection {
         cv::Rect2f roi;
         float score;

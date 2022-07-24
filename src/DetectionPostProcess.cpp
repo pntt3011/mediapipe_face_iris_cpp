@@ -1,31 +1,44 @@
 #include "DetectionPostProcess.hpp"
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
 
-/*
-Helper function
-*/
-std::vector<cv::Rect2f> generateAnchors(my::AnchorOptions options) {
+cv::Rect2f convertAnchorVectorToRect(const std::vector<float> &v)
+{
+    float cx = v[0];
+    float cy = v[1];
+    float w = v[2];
+    float h = v[3];
+    return cv::Rect2f(cx - w / 2, cy - h / 2, w, h);
+}
+
+std::vector<cv::Rect2f> generateAnchors()
+{
     std::vector<cv::Rect2f> anchors;
-    for (int i = 0; i < NUM_SIZES; ++i) {
-        auto size = options.sizes[i];
-        auto numLayer = options.numLayers[i];
-
-        for (auto y = 0; y < size; ++y) {
-            for (auto x = 0; x < size; ++x) {
-                float x_center = (x + options.offsetX) * 1.f / size;
-                float y_center = (y + options.offsetY) * 1.f / size;
-                float w = 1.f;
-                float h = 1.f;
-                anchors.insert(anchors.end(), numLayer, cv::Rect2f(x_center - w/2.f, y_center - h/2.f, w, h));
+    std::ifstream file("./models/anchors.csv");
+    if (file.is_open())
+    {
+        std::string line;
+        while (std::getline(file, line))
+        {
+            std::istringstream ss(line);
+            std::string token;
+            std::vector<float> anchor;
+            while (std::getline(ss, token, ','))
+            {
+                anchor.push_back(std::stof(token));
             }
+            anchors.push_back(convertAnchorVectorToRect(anchor));
         }
+        file.close();
     }
     return anchors;
 }
 
 
 my::DetectionPostProcess::DetectionPostProcess() :
-    m_anchors(generateAnchors(AnchorOptions())) {}
+    m_anchors(generateAnchors()) {}
 
 
 cv::Rect2f my::DetectionPostProcess::decodeBox
