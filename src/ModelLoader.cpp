@@ -102,9 +102,12 @@ void my::ModelLoader::runInference() {
 
 std::vector<float> my::ModelLoader::loadOutput(int index) const {
     if (isIndexValid(index, 'o')) {
-        int n = m_outputs[index].bytes;
-        std::vector<float> inference(n);
-        memcpy(&(inference[0]), m_outputs[index].data, n);
+        int sizeInByte = m_outputs[index].bytes;
+        int sizeInFloat = sizeInByte / sizeof(float);
+
+        std::vector<float> inference(sizeInFloat);
+        memcpy(&(inference[0]), m_outputs[index].data, sizeInByte);
+        
         return inference;
     }
     return std::vector<float>();
